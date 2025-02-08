@@ -3,6 +3,7 @@ package hackathon.dragon.service.toneService;
 import hackathon.dragon.apipayLoad.code.status.ErrorStatus;
 import hackathon.dragon.apipayLoad.exception.handler.TempHandler;
 import hackathon.dragon.domain.Tone;
+import hackathon.dragon.dto.ToneDto.response.TonePromptResponseDto;
 import hackathon.dragon.dto.ToneDto.response.ToneResponseDto;
 import hackathon.dragon.dto.ToneDto.request.ToneRequestDto;
 import hackathon.dragon.repository.ToneRepository;
@@ -52,6 +53,13 @@ public class ToneServiceImpl implements ToneService{
 
         // 저장된 엔티티의 일부 필드를 응답 DTO로 변환 후 반환
         return new ToneResponseDto(savedTone.getId(), savedTone.getName(), savedTone.getExplanation());
+    }
+
+    @Override
+    public TonePromptResponseDto getTonePrompt(Long toneId) {
+        Tone tone = toneRepository.findById(toneId)
+                .orElseThrow(() -> new TempHandler(ErrorStatus.TONE_NOT_FOUND));
+        return new TonePromptResponseDto(tone.getId(), tone.getName(), tone.getExplanation(), tone.getExample(), tone.getPrompt());
     }
 
     @Override

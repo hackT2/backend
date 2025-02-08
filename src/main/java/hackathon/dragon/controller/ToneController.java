@@ -2,6 +2,7 @@ package hackathon.dragon.controller;
 
 import hackathon.dragon.apipayLoad.ApiResponse;
 import hackathon.dragon.dto.ToneDto.request.ToneRequestDto;
+import hackathon.dragon.dto.ToneDto.response.TonePromptResponseDto;
 import hackathon.dragon.dto.ToneDto.response.ToneResponseDto;
 import hackathon.dragon.service.toneService.ToneService;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +30,12 @@ public class ToneController {
     public ApiResponse<ToneResponseDto> createTone(@RequestBody ToneRequestDto toneRequestDto) {
         ToneResponseDto toneResponseDto = toneService.createTone(toneRequestDto);
         return ApiResponse.onSuccess(toneResponseDto);
+    }
+
+    @GetMapping("/{id}/prompt")
+    public ApiResponse<TonePromptResponseDto> getTonePrompt(@PathVariable Long id) {
+        TonePromptResponseDto promptResponse = toneService.getTonePrompt(id);
+        return ApiResponse.onSuccess(promptResponse);
     }
 
     @DeleteMapping("/{id}")
