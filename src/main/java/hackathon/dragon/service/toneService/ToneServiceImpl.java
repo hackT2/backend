@@ -7,6 +7,7 @@ import hackathon.dragon.dto.ToneDto.response.TonePromptResponseDto;
 import hackathon.dragon.dto.ToneDto.response.ToneResponseDto;
 import hackathon.dragon.dto.ToneDto.request.ToneRequestDto;
 import hackathon.dragon.repository.ToneRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -36,9 +37,9 @@ public class ToneServiceImpl implements ToneService{
     public ToneResponseDto createTone(ToneRequestDto toneRequestDto) {
         // 입력받은 explanation과 example을 기반으로 prompt 생성
         String prompt = toneRequestDto.getLongExplanation()
-                + "말을 이쁘게 하기 위해서"
+                + " 말을 이쁘게 하기 위해서"
                 + toneRequestDto.getExample()
-                + "과 같은 방법으로 다음의 text의 말투를 변화시켜서 변화시킨 text만 출력해줘";
+                + "과 같은 방법으로 다음의 text의 말투를 변화시켜서 변화시킨 text만 줄바꿈을 구분으로 3종류로 출력해줘";
 
         // Tone 엔티티 생성 (builder 사용)
         Tone tone = Tone.builder()
