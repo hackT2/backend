@@ -21,3 +21,7 @@ spring:
     gcp:
       credentials:
         location: classpath:stt.json
+
+kakao:
+  client_id: ${REST_API_KEY}
+  redirect_uri: http://localhost:8080/kakao/oauth/signup
