@@ -21,3 +21,8 @@ spring:
     gcp:
       credentials:
         location: classpath:stt.json
+openai:
+  model: gpt-4o
+  api:
+    key: ${OPENAI_API_KEY}
+    url: https://api.openai.com/v1/chat/completions
