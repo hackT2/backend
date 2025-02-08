@@ -2,6 +2,8 @@ package hackathon.dragon.service.toneChangeService;
 
 import hackathon.dragon.dto.OpenAiDto.response.ChatGPTResponse;
 
+import java.util.List;
+
 public interface ToneChangeService {
-    ChatGPTResponse requestTextAnalysis(String requestText);
+    List<String> requestTextAnalysis(String requestText, Long id);
 }
