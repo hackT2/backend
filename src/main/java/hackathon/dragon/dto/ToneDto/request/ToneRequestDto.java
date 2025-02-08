@@ -13,4 +13,5 @@ public class ToneRequestDto {
     private String name;
     private String explanation;
     private String example;
+    private String longExplanation;
 }

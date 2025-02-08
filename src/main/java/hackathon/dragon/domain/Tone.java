@@ -33,6 +33,9 @@ public class Tone extends BaseEntity{
     private String explanation;
 
     @Column(columnDefinition = "TEXT")
+    private String longExplanation;
+
+    @Column(columnDefinition = "TEXT")
     private String example;
 
     @OneToMany(mappedBy = "tone", cascade = CascadeType.ALL)

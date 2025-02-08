@@ -11,6 +11,7 @@ public class TonePromptResponseDto {
     private Long id;
     private String name;
     private String explanation;
+    private String longExplanation;
     private String example;
     private String prompt;
 }
