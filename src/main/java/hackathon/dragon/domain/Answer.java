@@ -31,5 +31,5 @@ public class Answer extends BaseEntity{
     private Question question;
 
 
-    
+
 }
