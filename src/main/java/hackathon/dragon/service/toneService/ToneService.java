@@ -11,4 +11,5 @@ public interface ToneService {
 
     ToneResponseDto createTone(ToneRequestDto toneRequestDto);
 
+    void deleteTone(Long toneId);
 }
