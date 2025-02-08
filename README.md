@@ -1,7 +1,8 @@
 # backend
 
 # 배포 주소
-
+# 스웨거 주소
+http://3.35.245.105:8080/swagger-ui/index.html#/
 
 # Convention
 
