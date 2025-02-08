@@ -6,6 +6,7 @@ import hackathon.dragon.domain.User;
 import hackathon.dragon.dto.KakaoTokenResponseDto;
 import hackathon.dragon.dto.KakaoUserInfoResponseDto;
 import hackathon.dragon.service.KakaoService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,7 @@ public class KakaoLoginController {
     private final KakaoService kakaoService;
 
     @GetMapping("/callback")
+    @Operation(summary = "유저생성", description = "로그인 성공")
     public ApiResponse<String> callback(@RequestParam("code") String code) {
         String accessToken = kakaoService.getAccessTokenFromKakao(code);
 
