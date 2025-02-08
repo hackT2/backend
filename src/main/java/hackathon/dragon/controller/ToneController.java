@@ -1,12 +1,11 @@
 package hackathon.dragon.controller;
 
 import hackathon.dragon.apipayLoad.ApiResponse;
-import hackathon.dragon.apipayLoad.exception.handler.TempHandler;
-import hackathon.dragon.domain.Tone;
-import hackathon.dragon.dto.ToneDto.request.ToneResponseDto;
+import hackathon.dragon.dto.ToneDto.request.ToneRequestDto;
+import hackathon.dragon.dto.ToneDto.response.ToneResponseDto;
 import hackathon.dragon.service.toneService.ToneService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +23,12 @@ public class ToneController {
         List<ToneResponseDto> toneList = toneService.getAllTones();
 
         return ApiResponse.onSuccess(toneList);
+    }
+
+    @PostMapping
+    public ApiResponse<ToneResponseDto> createTone(@RequestBody ToneRequestDto toneRequestDto) {
+        ToneResponseDto toneResponseDto = toneService.createTone(toneRequestDto);
+        return ApiResponse.onSuccess(toneResponseDto);
     }
 
 
