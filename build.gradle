@@ -39,6 +39,17 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // Google Speech To Text
+    implementation 'com.google.cloud:google-cloud-speech:4.28.0'
+    // Google Speech To Text
+    implementation(platform("com.google.cloud:libraries-bom:26.1.4"))
+    implementation("com.google.protobuf:protobuf-java:3.22.3")
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    //swagger
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0'
 }
 
 tasks.named('test') {
