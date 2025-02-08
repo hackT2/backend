@@ -35,7 +35,7 @@ public class ToneServiceImpl implements ToneService{
     @Override
     public ToneResponseDto createTone(ToneRequestDto toneRequestDto) {
         // 입력받은 explanation과 example을 기반으로 prompt 생성
-        String prompt = toneRequestDto.getExplanation()
+        String prompt = toneRequestDto.getLongExplanation()
                 + "말을 이쁘게 하기 위해서"
                 + toneRequestDto.getExample()
                 + "과 같은 방법으로 다음의 text의 말투를 변화시켜서 변화시킨 text만 출력해줘";
@@ -45,6 +45,7 @@ public class ToneServiceImpl implements ToneService{
                 .name(toneRequestDto.getName())
                 .explanation(toneRequestDto.getExplanation())
                 .example(toneRequestDto.getExample())
+                .longExplanation(toneRequestDto.getLongExplanation())
                 .prompt(prompt)
                 .build();
 
@@ -59,7 +60,7 @@ public class ToneServiceImpl implements ToneService{
     public TonePromptResponseDto getTonePrompt(Long toneId) {
         Tone tone = toneRepository.findById(toneId)
                 .orElseThrow(() -> new TempHandler(ErrorStatus.TONE_NOT_FOUND));
-        return new TonePromptResponseDto(tone.getId(), tone.getName(), tone.getExplanation(), tone.getExample(), tone.getPrompt());
+        return new TonePromptResponseDto(tone.getId(), tone.getName(), tone.getExplanation(), tone.getLongExplanation(), tone.getExample(), tone.getPrompt());
     }
 
     @Override
