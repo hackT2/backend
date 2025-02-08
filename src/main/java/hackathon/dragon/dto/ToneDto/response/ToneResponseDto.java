@@ -1,4 +1,4 @@
-package hackathon.dragon.dto.ToneDto.request;
+package hackathon.dragon.dto.ToneDto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
