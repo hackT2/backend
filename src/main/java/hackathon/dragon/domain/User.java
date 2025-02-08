@@ -20,12 +20,12 @@ import java.util.List;
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; //카카오 사용자 Id;
 
     @Column(length=100)
     private String name;
 
-    @Column(length = 512)
+    @Column(length = 512,nullable = false, unique = true)
     private String kakaoEmail;
 
     @Column(length = 512)
