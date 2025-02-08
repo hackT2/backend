@@ -31,5 +31,11 @@ public class ToneController {
         return ApiResponse.onSuccess(toneResponseDto);
     }
 
+    @DeleteMapping("/{id}")
+    public ApiResponse<Void> deleteTone(@PathVariable Long id) {
+        toneService.deleteTone(id);
+        return ApiResponse.onSuccess(null);
+    }
+
 
 }
